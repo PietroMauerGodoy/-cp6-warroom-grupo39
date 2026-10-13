@@ -100,7 +100,7 @@ Como temos pouco tempo, optamos pelo Rollback, garantindio que na blackfriday o 
 **Placar do grupo após esta decisão:** 🔥 6 💰 R$ 15 mil · 🧹 3
 
 
-## <Rodada 1 relâmpago>
+## <Rodada relâmpago A>
 
 **Tipo:** (relâmpago) · **Voto:** (B)
 
@@ -125,6 +125,68 @@ Trocar por um número aletório resolveria o nosso problema, algo funcional e pr
 
 **Placar do grupo após esta decisão:** 🔥 7 · 💰 R$ 15 mil · 🧹 3
 
+
+
+
+## <Rodada 4>
+
+**Tipo:** ( rodada ) · **Voto:** ( B )
+
+**Justificativa:**
+
+
+
+**Placar do grupo após esta decisão:** 🔥 8 · 💰 R$ 40 mil · 🧹 2
+
+
+
+## <Rodada 5>
+
+**Tipo:** ( rodada ) · **Voto:** ( A )
+
+**Justificativa:**
+
+
+
+**Placar do grupo após esta decisão:** 🔥 8 · 💰 R$ 40 mil · 🧹 2
+
+
+## <Rodada relâmpago C>
+
+**Tipo:** ( relâmpago ) · **Voto:** ( B )
+
+**Justificativa:**
+
+
+
+**Placar do grupo após esta decisão:** 🔥 8 · 💰 R$ 40 mil · 🧹 2
+
+
+## <Rodada 6>
+
+**Tipo:** ( rodada ) · **Voto:** ( B )
+
+**Justificativa:**
+
+
+
+**Placar do grupo após esta decisão:** 🔥 7 · 💰 R$ 70 mil · 🧹 2
+
+
+
+
+## <Rodada 7>
+
+**Tipo:** ( rodada  ) · **Voto:** ( B )
+
+**Justificativa:**
+
+<2 a 3 linhas: mecanismo técnico + trade-off>
+
+**Placar do grupo após esta decisão:** 🔥 8 · 💰 R$ 170 mil · 🧹 1
+
+
+```
 
 ```
 
