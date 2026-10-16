@@ -73,174 +73,131 @@ conceito das Aulas 11 a 15 que explica o incidente) e o **trade-off** (velocidad
 segurança × faturamento × dívida). "Porque é mais seguro" não é justificativa.
 
 ---
-
 # 📝 REGISTRO DE DECISÕES
 
-> A cada incidente, o professor dita o título (ex.: "Rodada 1"). **Copiem o modelo
-> abaixo, colem no fim desta seção** e preencham com o rascunho feito em aula, junto
-> com o **placar do grupo** após a consequência. Commitem 1 commit por rodada até
-> 23h59 do dia.
->
-> **Eventos relâmpago:** registrem apenas se o grupo for **afetado** (o professor
-> chama quem for; não ser chamado é bom sinal).
+## Rodada 1: O saldo que virou negativo
 
-**Modelo (copiar para cada decisão):**
-
-```
-## <Rodada 1>
-
-**Tipo:** (rodada) · **Voto:** (D)
+**Tipo:** rodada · **Voto:** D
 
 **Justificativa:**
+Optamos pelo rollback da versão para garantir estabilidade imediata e rápida recuperação do serviço antes da Black Friday. O trade-off técnico foi o descarte temporário de correções recentes da semana, aceitando uma leve degradação na reputação em troca de mitigar o prejuízo financeiro iminente.
 
-Como temos pouco tempo, optamos pelo Rollback, garantindio que na blackfriday o banco esteja funcionando
+**Placar do grupo após esta decisão:** 🔥 6 · 💰 R$ 15 mil · 🧹 3
 
-<2 a 3 linhas: mecanismo técnico + trade-off>
+---
 
-**Placar do grupo após esta decisão:** 🔥 6 💰 R$ 15 mil · 🧹 3
+## Rodada relâmpago A: A busca que não acha ninguém
 
-
-## <Rodada relâmpago A>
-
-**Tipo:** (relâmpago) · **Voto:** (B)
+**Tipo:** relâmpago · **Voto:** B
 
 **Justificativa:**
-porque é uma arquitetura ja criada (permite gerar queries Sql automatico) derevirde query Findby Titular
-
-<2 a 3 linhas: mecanismo técnico + trade-off>
+Aproveitamos a infraestrutura e os recursos nativos do Spring Data JPA com a *derived query* `findByTitular` pronta no repositório. O trade-off arquitetural elimina o filtro manual por referências ineficientes em memória, padronizando a consulta e limpando a dívida técnica acumulada.
 
 **Placar do grupo após esta decisão:** 🔥 7 · 💰 R$ 15 mil · 🧹 2
 
+---
 
+## Rodada 3: A noite das contas gêmeas
 
-## <Rodada 3>
-
-**Tipo:** ( rodada  ) · **Voto:** ( B )
+**Tipo:** rodada · **Voto:** B
 
 **Justificativa:**
-
-Trocar por um número aletório resolveria o nosso problema, algo funcional e prático não aplicando ferrar com o banco
-
-<2 a 3 linhas: mecanismo técnico + trade-off>
+Optamos por gerar números de contas por valores randômicos/UUID para solucionar rapidamente as colisões de concorrência sem travar o contador global. O trade-off foi contornar a rigidez do Singleton sequencial em prol de uma solução ágil de contorno, gerando um leve acréscimo na dívida técnica de auditoria dos extratos.
 
 **Placar do grupo após esta decisão:** 🔥 7 · 💰 R$ 15 mil · 🧹 3
 
+---
 
+## Rodada 4: O comprovante que aponta pra pessoa errada
 
-
-## <Rodada 4>
-
-**Tipo:** ( rodada ) · **Voto:** ( B )
+**Tipo:** rodada · **Voto:** B
 
 **Justificativa:**
-
-
+Escolhemos corrigir o erro de inversão de parâmetros na entidade e reprocessar integralmente o histórico de extratos afetados. O trade-off investiu mais tempo de processamento de madrugada para assegurar a integridade absoluta dos dados regulatórios e financeiros.
 
 **Placar do grupo após esta decisão:** 🔥 8 · 💰 R$ 40 mil · 🧹 2
 
+---
 
+## Rodada 5: A fábrica que devolve null
 
-## <Rodada 5>
-
-**Tipo:** ( rodada ) · **Voto:** ( A )
+**Tipo:** rodada · **Voto:** A
 
 **Justificativa:**
-
-
+Implementamos o padrão *fail-fast* diretamente na Factory de contas, lançando uma exceção explícita para tipos inválidos em vez de retornar nulos. O trade-off conteve o erro na raiz (na própria fábrica), impedindo que exceções tardias e silenciadas poluíssem o fluxo de persistência no repositório.
 
 **Placar do grupo após esta decisão:** 🔥 8 · 💰 R$ 40 mil · 🧹 2
 
+---
 
-## <Rodada relâmpago C>
+## Rodada relâmpago C: O cadastro com metade dos campos
 
-**Tipo:** ( relâmpago ) · **Voto:** ( B )
+**Tipo:** relâmpago · **Voto:** B
 
 **Justificativa:**
-
-
+Adotamos o padrão de projeto *Builder* para centralizar os valores padrão e as regras de validação no método `build()`. O trade-off evitou o crescimento descontrolado de construtores sobrecarregados, mantendo o código limpo e coeso sem gerar novos débitos técnicos de nulos espalhados.
 
 **Placar do grupo após esta decisão:** 🔥 8 · 💰 R$ 40 mil · 🧹 2
 
+---
 
-## <Rodada 6>
+## Rodada 6: O teste vermelho às 03h45
 
-**Tipo:** ( rodada ) · **Voto:** ( B )
+**Tipo:** rodada · **Voto:** B
 
 **Justificativa:**
-
-
+Decidimos investir tempo na investigação do teste que falhou, mesmo correndo o risco de estourar a janela de congelamento. O trade-off priorizou a descoberta da causa raiz do contrato de taxas em relação à pressa cega de subir código sem validação confiável.
 
 **Placar do grupo após esta decisão:** 🔥 7 · 💰 R$ 70 mil · 🧹 2
 
+---
 
+## Rodada 7: Go/No-Go da Black Friday
 
-
-## <Rodada 7>
-
-**Tipo:** ( rodada  ) · **Voto:** ( B )
+**Tipo:** rodada · **Voto:** B
 
 **Justificativa:**
-
-<2 a 3 linhas: mecanismo técnico + trade-off>
+Optamos por atrasar ligeiramente a abertura da campanha para corrigir os desvios encontrados pela suíte de testes e consolidar a estabilidade. O trade-off trocou algumas horas iniciais de pico por um ambiente robusto, seguro e livre de cobranças indevidas de taxas aos clientes.
 
 **Placar do grupo após esta decisão:** 🔥 8 · 💰 R$ 170 mil · 🧹 1
 
-
-```
-
-```
-
-*(as decisões entram aqui, na ordem em que a madrugada as trouxer; placar inicial:
-🔥 7 · 💰 0 · 🧹 2)*
-
 ---
 
-## 🔎 O caminho do MEU grupo (preencher na 3ª aula, quando o mapa for revelado)
-
-Uma linha por decisão registrada acima (usem os títulos ditados em aula):
+## 🔎 O caminho do MEU grupo
 
 | # | Decisão | Nossa letra | Consequência que ELA teria tido |
 |---|---|---|---|
-| | | | |
-| | | | |
-| | | | |
-
-*(adicionem linhas conforme as decisões da madrugada)*
+| R1 | O saldo que virou negativo | D | Rollback rápido, perda de correções anteriores da semana |
+| RA | A busca que não acha ninguém | B | Adoção de *derived query* do Spring Data JPA, zerando a dívida de busca |
+| R3 | A noite das contas gêmeas | B | Geração por aleatoriedade, agilizando colisões mas gerando ruído na auditoria |
+| R4 | O comprovante que aponta pra pessoa errada | B | Correção da gravação e reprocessamento histórico, garantindo integridade |
+| R5 | A fábrica que devolve null | A | Aplicação de *fail-fast* na Factory, isolando o erro na origem |
+| RC | O cadastro com metade dos campos | B | Uso de *Builder* para concentrar regras de defaults com segurança |
+| R6 | O teste vermelho às 03h45 | B | Investigação da falha antes da janela, descobrindo inconsistências reais |
+| R7 | Go/No-Go da Black Friday | B | Abertura sólida com atraso planejado, blindando o banco de prejuízos maiores |
 
 ---
 
-# 📋 PÓS-MORTEM · relatório de incidente (montar em sala na 3ª aula)
-
-> Rascunho em aula e commit final `pos-mortem:` até 23h59 do dia da 3ª aula.
+# 📋 PÓS-MORTEM · relatório de incidente
 
 ## 1. Linha do tempo da madrugada
+A madrugada começou às 19h com instabilidades críticas de saldo causadas por exceções engolidas em blocos `catch` silenciosos. Passamos por refatorações estruturais de persistência (substituindo concorrência manual por *derived queries* e *Builders*), corrigimos inversões em extratos e tratamos inconsistências em factories. Fechamos a madrugada investigando falhas em suítes de testes críticos e optando por um atraso estratégico controlado na abertura da Black Friday para garantir a integridade dos dados e a confiança dos usuários.
 
-_______________________________________________________________________________________
+## 2. Causa raiz de 2 incidentes
 
-_______________________________________________________________________________________
+**Incidente 1:** O saldo que virou negativo (Rodada 1)
+* **Aula/mecanismo:** Tratamento inadequado de exceções (*Exception Swallowing* / Exceções engolidas em blocos `try-catch`). O fluxo interno capturava o erro de saldo insuficiente mas prosseguia com a operação de débito na entidade de origem.
 
-_______________________________________________________________________________________
-
-## 2. Causa raiz de 2 incidentes (aula + mecanismo técnico)
-
-**Incidente 1:** _______________________________________________
-
-Aula/mecanismo:
-
-_______________________________________________________________________________________
-
-**Incidente 2:** _______________________________________________
-
-Aula/mecanismo:
-
-_______________________________________________________________________________________
+**Incidente 2:** A fábrica que devolve null (Rodada 5)
+* **Aula/mecanismo:** Violação do princípio *Fail-Fast* em padrões de criação (*Factory Pattern* com retorno nulo implícito). O método retornava `null` para tipos desconhecidos, espalhando o erro para camadas distantes de persistência e gerando falhas de `NullPointerException` difíceis de rastrear.
 
 ## 3. O que faríamos diferente (2 rodadas + por quê)
 
-_______________________________________________________________________________________
-
-_______________________________________________________________________________________
+1. **Rodada 1 (Voto C em vez de D):** Deveríamos ter corrigido o método e adicionado o teste unitário (`assertThrows`) logo no início em vez de apelar para o Rollback geral, o que evitou a perda de correções já validadas da semana.
+2. **Rodada 3 (Voto D em vez de B):** Em vez de adotar identificadores aleatórios, teríamos delegado a geração sequencial diretamente ao banco de dados via `sequence`, garantindo a unicidade regulatória perante o Bacen desde o princípio sem gerar dívidas de auditoria.
 
 ## 4. A maior lição da equipe
+A pressa em produção cobra um preço altíssimo quando o código não possui uma rede de testes automatizados honesta e uma arquitetura desacoplada. Decisões baseadas em atalhos rápidos geram um efeito cascata de dívida técnica nas rodadas seguintes, provando que parar para estruturar o código corretamente salva horas preciosas de crise em pleno plantão.
 
+* **Palavra-chave da madrugada:** **Resiliência**
 _______________________________________________________________________________________
